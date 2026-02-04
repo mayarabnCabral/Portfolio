@@ -1,0 +1,48 @@
+section {
+    background-color: rgb(196, 196, 196);
+    /* Fundo cinza igual ao Sobre Mim */
+    padding: 80px;
+}
+
+h1 {
+    color: rgb(172, 1, 1);
+    /* Vermelho padrão */
+    margin-bottom: 40px;
+    margin-left: 10%;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contatos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-left: 10%;
+}
+
+
+a:hover {
+    display: flex;
+    flex-wrap: wrap;
+    color: rgb(172, 1, 1);
+    font-weight: bold;
+}
+
+/* Inicio Responsividade */
+@media (max-width: 768px) {
+.contatos-icons {
+        gap: 30px; /* Aproxima um pouco os ícones no celular */
+    }
+    
+    .contatos-icons a {
+        font-size: 45px; /* Ajuste sutil para telas pequenas */
+    }
+}
+/* Fim Responsividade */
