@@ -1,0 +1,265 @@
+.sobre-mim {
+    background-color: rgb(196, 196, 196); /* Seu fundo cinza */
+    padding: 80px 1%;
+    min-height: 100vh;
+}
+h1{
+    color: rgb(172, 1, 1);
+}
+
+.container-flex {
+    display: flex;         /* Coloca foto e texto lado a lado */
+    align-items: center;   /* Alinha verticalmente ao centro */
+    gap: 50px;             /* Cria o espaço entre a foto e o texto */
+    max-width: 1100px;
+    margin: 0;
+    align-items: flex-start; /*Alinha os itens a baixo*/
+    padding-top: 3%;
+}
+
+/*Inicio configurações das tecnologias*/
+/* Container das tecnologias */
+.tecnologias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+    margin: 20px 0;
+    justify-content: flex-start;
+    align-items: flex-start; /* Alinha pelo topo para o nome descer sem tremer */
+}
+
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    /* Transição suave para o efeito de "empurrar" */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    padding: 10px;
+}
+
+.tech-item img {
+    width: 50px;
+    height: 50px;
+}
+
+.tech-nome {
+    display: block; 
+    color: rgb(172, 1, 1); 
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+    
+    /* Estado inicial: Escondido mas pronto para ocupar espaço */
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.tech-item:hover {
+    transform: scale(1.4); /* Aumenta o ícone */
+    margin: 0 15px; /* É isso que joga os outros ícones para o lado */
+}
+
+.tech-item:hover .tech-nome {
+    opacity: 1;         /* Faz o nome aparecer */
+    max-height: 40px;   /* Expande o espaço vertical para o texto aparecer */
+    margin-top: 10px;   /* Cria o distanciamento do ícone */
+    overflow: visible;  /* Garante que o texto não seja cortado */
+}
+/* Fim configurações das tecnologias */
+
+.espacamento-sobre {
+    margin: 0 10%;
+    p {
+        text-align: justify;
+        margin-top: 1%;
+        font-size: 20px;
+    }
+
+}
+
+.foto-perfil {
+    position: relative;
+    width: 300px; /* Tamanho base */
+    height: 400px; /* Ajuste conforme a proporção da sua foto */
+    transition: transform 0.5s ease;
+}
+
+.foto-perfil img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    border: 4px solid rgb(172, 1, 1);
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    object-fit: cover;
+}
+
+/* A foto envergonhada começa invisível */
+.foto-vergonha {
+    opacity: 0;
+}
+
+/* Quando passa o mouse no CONTAINER */
+.foto-perfil:hover {
+    transform: translateY(-10px) rotate(5deg) scale(1.1); /* Aumenta um pouco e inclina */
+}
+
+.foto-perfil:hover .foto-original {
+    opacity: 0; /* Esconde a séria */
+}
+
+.foto-perfil:hover .foto-vergonha {
+    opacity: 1; /* Mostra a sorrindo */
+}
+
+.texto-sobre {
+    flex: 1;               /* Faz o texto ocupar o restante do espaço */
+    text-align: justify;
+
+    p{
+        padding-top: 10px;
+    }
+}
+
+li {
+    list-style: none;
+}
+
+/*Inicio configuração dos cards*/
+.cards-experiencia {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cards-experiencia h3 {
+    color: rgb(172, 1, 1);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-left: 5px solid rgb(172, 1, 1); /* Destaque lateral vermelho */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade */
+    transition: transform 0.3s ease; /* Efeito de animação ao passar o mouse */
+}
+
+.card:hover {
+    transform: translateX(10px) translateY(-10px); /* O card "anda" pro lado no hover */
+    background-color: #f9f9f9;
+    box-shadow: 0px 10px 150px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    overflow: visible;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.card-icon {
+    font-size: 1.5rem;
+}
+
+.card-info h4 {
+    margin: 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.card-info p {
+    margin: 5px 0 0;
+    color: #666;
+    font-size: 0.9rem !important; /* Tamanho menor para a descrição */
+}
+/* Fim configuração dos cards */
+
+/* Inicio responsividade */
+
+@media (max-width: 1024px) {
+    .container-flex {
+        flex-direction: column; /* Empilha os blocos em tablets e celulares */
+        align-items: center;
+        gap: 30px;
+    }
+
+    .espacamento-sobre {
+        margin: 0 5%; /* Reduz a margem lateral em telas médias */
+    }
+}
+
+@media (max-width: 768px) {
+    .sobre-mim {
+        padding: 60px 15px; /* Reduz o padding superior no mobile */
+    }
+
+    .espacamento-sobre {
+        margin: 0; /* Remove as margens de 10% para ganhar espaço */
+    }
+
+    .espacamento-sobre h1 {
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    /* Foto de Perfil */
+    .foto-perfil {
+        width: 250px; /* Reduz um pouco o tamanho da foto no mobile */
+        height: 330px;
+        margin: 0 auto;
+    }
+
+    /* Texto */
+    .texto-sobre p {
+        font-size: 16px !important; /* Texto um pouco menor para leitura confortável */
+        text-align: left; /* Justificado no mobile às vezes cria espaços estranhos */
+    }
+
+    /* Tecnologias */
+    .tecnologias {
+        justify-content: center; /* Centraliza os ícones no mobile */
+        gap: 10px;
+    }
+
+    .tech-item img {
+        width: 40px; /* Ícones levementes menores */
+        height: 40px;
+    }
+
+    /* Cards de Experiência */
+    .cards-experiencia {
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .card {
+        padding: 12px;
+    }
+
+    .card:hover {
+        transform: translateY(-5px); /* No mobile, melhor não mover para o lado (X) */
+    }
+}
+
+/* Ajuste específico para evitar o sumiço do nome das tecnologias no touch */
+@media (hover: none) {
+    .tech-nome {
+        opacity: 1;
+        max-height: 40px;
+        margin-top: 5px;
+        font-size: 12px;
+    }
+}
+/* Fim responsividade */
