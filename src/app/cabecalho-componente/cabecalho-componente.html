@@ -1,0 +1,29 @@
+<header class="cabecalho">
+  <nav class="nav-container">
+    <div class="logo-wrapper">
+      <img src="https://i.imgur.com/kRmkIhI.png" alt="logo MBNC" class="logo-nav">
+    </div>
+
+    <button class="menu-toggle" (click)="toggleMenu()" [class.open]="menuAberto">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <ul class="nav-links" [class.show]="menuAberto">
+      <li><a href="#inicio" (click)="menuAberto = true">Início</a></li>
+      <li><a href="#sobre" (click)="menuAberto = true">Sobre</a></li>
+      <li><a href="#projetos" (click)="menuAberto = true">Projetos</a></li>
+      <li><a href="#contato" (click)="menuAberto = true">Contato</a></li>
+    </ul>
+
+    <div class="links-nav">
+      <a href="https://www.linkedin.com/in/mayarabnc/" target="_blank">
+        <i class="devicon-linkedin-plain"></i>
+      </a>
+      <a href="https://github.com/mayarabnCabral" target="_blank">
+        <i class="devicon-github-original"></i>
+      </a>
+    </div>
+  </nav>
+</header>

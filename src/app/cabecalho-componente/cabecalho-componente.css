@@ -1,0 +1,152 @@
+section{ 
+  text-decoration: none;
+}
+
+.cabecalho {
+  background-color: rgb(22, 22, 22);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  z-index: 1001;
+}
+
+.nav-links a, .links-nav a {
+  color: white;
+  text-decoration: none; /* Remove o sublinhado padrão */
+  outline: none;         /* Remove a borda azul de seleção ao clicar */
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.3s;
+  -webkit-tap-highlight-color: transparent; /* Remove o brilho azul no toque do celular */
+}
+
+
+.nav-links a:hover {
+  color: rgb(172, 1, 1);
+}
+
+/* Linha animada do hover */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background-color: rgb(172, 1, 1);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.logo-nav {
+  height: 50px;
+  width: auto;
+}
+
+.links-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.links-nav i {
+  font-size: 24px;
+  color: white;
+  transition: transform 0.3s;
+}
+
+.links-nav i:hover {
+  color: rgb(172, 1, 1);
+  transform: scale(1.2);
+}
+
+/* --- BOTÃO HAMBÚRGUER --- */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.bar {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  transition: 0.3s;
+}
+
+/* Inicio Responsividade */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none; 
+    flex-direction: column;
+    position: absolute;
+    top: 80px; /* Altura do header */
+    left: 0;
+    width: 100vw;
+    background-color: rgb(22, 22, 22);
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #333;
+    box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+  }
+
+  /* Quando o menu está aberto */
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 15px 0;
+    display: block;
+    z-index: 1002;
+  }
+
+  .nav-links a::after {
+    display: none; /* Remove a linha animada no mobile */
+  }
+
+  .links-nav {
+    display: none; /* Esconde ícones sociais no topo do celular para ganhar espaço */
+  }
+
+  .nav-container {
+    padding: 0 20px;
+  }
+}
+/* Fim Responsividade */
